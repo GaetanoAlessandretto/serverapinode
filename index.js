@@ -22,3 +22,4 @@ app.get("/products", function (req, res) {
 app.listen(3009, function () {
     console.log("Server is running on port 3009.");
 });
+module.exports = app
