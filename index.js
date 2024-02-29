@@ -1,19 +1,23 @@
-const express = require('express');
-const cors = require('cors');
+var https = require('https');
+const express = require('express')
 const fetch = require('node-fetch');
+const cors = require('cors'); // Aggiungi questa linea
 
 const app = express();
-const port = process.env.PORT || 3000;
+
+
 
 app.use(cors());
 
-app.get('/', async (req, res) => {
+
+app.get('/products', async (req, res) => {
     const response = await fetch('https://mockend.up.railway.app/api/products');
     const products = await response.json();
 
     res.json(products);
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(3001, function () {
+    console.log("Server is running");
 });
+
